@@ -56,7 +56,7 @@ def post_detail(request, post_id):
     post = post_in_id.get(post_id)
     if post is None:
         raise Http404()
-    context = {'post': post_in_id[post_id]}
+    context = {'post': post}
     return render(request, 'blog/detail.html', context)
 
 

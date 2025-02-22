@@ -1,47 +1,13 @@
-{% with request.resolver_match.view_name as view_name %}
-  {% if view_name == 'blog:index' %}
-      <h1>Лента записей</h1>
-      <hr>
-      <!-- Перебираем в цикле все посты -->
-      {% for post in post %}
-          <article>
-              <ul>
-                  <li>
-                      Место: {{ post.location }}
-                  </li>
-                  <li>
-                      Дата: {{ post.date }}
-                  </li>
-                  <li>
-                    Категория: <a href="{% url 'blog:category_posts' post.category %}">{{ post.category }}</a>
-                  </li>
-              </ul>
-              <p>
-                  {{ post.text|truncatewords:10 }}
-              </p>
-              <div>
-              <a href="posts/{{ post.id }}">Читать полный текст</a>
-              </div>
-          </article>
-          <hr>
-      {% empty %}
-          <p>Постов пока нет.</p>
-      {% endfor %}
-  {% elif view_name == 'blog:post_detail' %}  
-      <article>
-          <ul>
-              <li>
-                  Место: {{ post.location }}
-              </li>
-              <li>
-                  Дата: {{ post.date }}
-              </li>
-              <li>
-                Категория: <a href="{% url 'blog:category_posts' post.category %}">{{ post.category }}</a>
-          </ul>
-          <p>
-              {{ post.text|linebreaksbr }}  
-          </p>
-      </article>
-  {% endif %}
-{% endwith %}
+<article>
+	<ul>
+    <li>
+    	Место: {{ post.location }}
+    </li>
+    <li>
+    	Дата: {{ post.date }}
+    </li>
+    <li>
+    	Категория: <a href="{% url 'blog:category_posts' post.category %}">{{ post.category }}</a>
+    </li>
+  </ul>
+</article>

@@ -8,13 +8,10 @@
     <!-- Перебираем в цикле все посты -->
     {% for post in post %}
     {% include 'blog/includes/article.html'%}
-    <p>
-      {{ post.text|truncatewords:10 }}
-    </p>
     <div>
       <a href="posts/{{ post.id }}">Читать полный текст</a>
     </div>
-<hr>
+  <hr>
     {% empty %}
       <p>Постов пока нет.</p>
     {% endfor %}

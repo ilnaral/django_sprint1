@@ -9,5 +9,17 @@
     <li>
     	Категория: <a href="{% url 'blog:category_posts' post.category %}">{{ post.category }}</a>
     </li>
+    <br>
+{% with request.resolver_match.view_name as view_name %}    
+  {% if view_name == 'blog:index' %}
+    <p>
+      {{ post.text|truncatewords:10 }}
+    </p>
+  {% elif view_name == 'blog:post_detail' %} 
+    <p> 
+      {{ post.text|linebreaksbr }}   
+  </p>
+  {% endif %} 
+{% endwith %} 
   </ul>
 </article>

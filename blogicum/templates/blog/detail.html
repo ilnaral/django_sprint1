@@ -3,9 +3,5 @@
   {{ post.location }} {{ post.date }}
 {% endblock %}
 {% block content %}
-  {% include 'blog/includes/article.html'%}
-  <p>
-    {{ post.text|linebreaksbr }}  
-  </p>
-</article>                
+  {% include 'blog/includes/article.html'%}               
 {% endblock %}
